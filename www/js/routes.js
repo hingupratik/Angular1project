@@ -9,10 +9,10 @@ angular.module('app.routes', [])
   })
 
   $stateProvider
-  .state('register',{
-    url:'/register',
-    templateUrl:'templates/register.html', 
-    controller:'registerCtrl'
+  .state('signup',{
+    url:'/signup',
+    templateUrl:'templates/signup.html', 
+    controller:'signupCtrl'
   })
 
   .state('main',{

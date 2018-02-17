@@ -13,16 +13,21 @@ angular.module('app.controller',[])
     };
 }])
 
-.controller('registerCtrl',['$scope', '$state',
+.controller('signupCtrl',['$scope', '$state',
  function($scope, $state, ) {
 
-  $scope.registerBack = function(){
+  $scope.login = function(){
+    $state.go("main.dash");
+  }
+  $scope.signupBack = function(){
     $state.go("login");
   }
 }])
 
-.controller('loginCtrl',['$scope','$state', 'UserService', '$ionicLoading',
- function($scope, $state, UserService, $ionicLoading){
+.controller('loginCtrl',['$scope','$state', 'UserService', '$ionicLoading','loginSerivce','$ionicPopup',
+ function($scope, $state, UserService, $ionicLoading, loginSerivce, $ionicPopup){
+
+  $scope.data = {};
   // This method is executed when the user press the "Sign in with Google" button
   $scope.googleSignIn = function() {
     $ionicLoading.show({
@@ -55,10 +60,23 @@ angular.module('app.controller',[])
   };
 
   $scope.login = function(){
-    $state.go("main.dash");
+    /*console.log("Login user:" + $scope.data.username +"Password"+ $scope.data.password );*/
+    loginSerivce.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+      $state.go("main.dash");  
+    }).error(function(data) {
+        var forceUpdatePopup = $ionicPopup.show({
+              'title':'login failed',
+              'subTitle':'retry',
+              buttons: [
+                { text: '<b>OK</b>',
+                  type: 'button-royal',
+                },
+              ]
+           });
+    });    
   }
 
-  $scope.register = function(){
-    $state.go("register");
+  $scope.signup = function(){
+    $state.go("signup");
   }
 }])
