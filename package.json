@@ -7,5 +7,30 @@
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {
+    "angular-mocks": "^1.6.9",
+    "cordova-android": "7.0.0",
+    "cordova-plugin-device": "^2.0.1",
+    "cordova-plugin-googleplus": "^5.2.1",
+    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-whitelist": "^1.3.3"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "386187790823-24dlnae84ika610tut906noq48lip42g.apps.googleusercontent.com"
+      }
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }
