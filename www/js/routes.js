@@ -5,22 +5,18 @@ angular.module('app.routes', [])
   .state('login',{
     url:'/login',
     templateUrl:'templates/login.html',
-    controller:'loginCtrl' 
+    controller:'loginCtrl'
   })
-
-  $stateProvider
-  .state('register',{
-    url:'/register',
-    templateUrl:'templates/register.html', 
-    controller:'registerCtrl'
+  .state('signup',{
+    url:'/signup',
+    templateUrl:'templates/signup.html',
+    controller:'signupCtrl'
   })
-
   .state('main',{
     url:'/',
     abstract : true,
     templateUrl:'templates/main.html',
   })
-
   .state('main.dash',{
     url:'main/dash',
     views:{
@@ -30,7 +26,6 @@ angular.module('app.routes', [])
       }
     }
   })
-
   .state('main.public',{
     url:'main/public',
     views:{
@@ -39,7 +34,6 @@ angular.module('app.routes', [])
       }
     }
   })
-
   .state('main.admin',{
     url:'main/admin',
     views:{
@@ -47,10 +41,18 @@ angular.module('app.routes', [])
         templateUrl:'templates/admin.html'
       }
     },
-  });
+  })
 
+  .state('myaccount',{
+    url:'main/myaccount',
+    templateUrl:'templates/myaccount.html',
+    controller:'myAccountCtrl'
+  })
+  .state('language',{
+    url:'main/myaccount/language',
+    templateUrl:'templates/languageSelector.html',
+    controller:'languageCtrl'
+  })
 
-
-  
   $urlRouterProvider.otherwise('/main/dash')
 });

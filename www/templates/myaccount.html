@@ -1,0 +1,36 @@
+<ion-view view-title="Myaccount">
+    <ion-nav-buttons side="side">
+         <button class="button back-button buttons no-text button-clear header-item" ng-click="myAccountBack()">
+            <i class="icon ion-android-arrow-back"></i>
+         </button>
+    </ion-nav-buttons>
+    <ion-content>
+      <div>
+      <ion-list id="myaccount-list74">
+        <ion-item id="myaccount-list-item105">Name
+          <span class="item-note">
+            <span class="rs-text">Test</span>
+          </span>
+        </ion-item>
+        <ion-item id="myaccount-list-item105">Email
+          <span class="item-note">
+            <span class="rs-text">Tester@icloud.com</span>
+          </span>
+        </ion-item>
+        <ion-item class="item-divider">Settings</ion-item>
+        <ion-item class="item-icon-right" ng-click="selectlanguage()">Language
+          <span class="item-note">
+            <span class="rs-text">English</span>
+          </span>
+          <i class="icon grey-icon-color ion-ios-world-outline"></i>
+        </ion-item>
+        <ion-item class="item-icon-right" ng-click="logout()">
+          <span class="item-note">
+            <span class="rs-text">Logout</span>
+          </span>
+          <i class="icon grey-icon-color ion-log-out"></i>
+        </ion-item>
+    </ion-list>
+  </div>
+    </ion-content>
+  </ion-view>

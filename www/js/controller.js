@@ -1,28 +1,52 @@
 angular.module('app.controller',[])
 
-.controller('WelcomeCtrl',['$scope', '$state',
- function($scope, $state, ) {
+  .controller('WelcomeCtrl',['$scope', '$state',
 
-  $scope.logout = function(){
-    $state.go("login");
-  }
+    function($scope, $state, ) {
 
-  $scope.doRefresh = function() {
-      //Stop the ion-refresher from spinning
-        $scope.$broadcast('scroll.refreshComplete');        
-    };
+      $scope.doRefresh = function() {
+        //Stop the ion-refresher from spinning
+        $scope.$broadcast('scroll.refreshComplete');
+      };
 }])
 
-.controller('registerCtrl',['$scope', '$state',
- function($scope, $state, ) {
+  .controller('signupCtrl',['$scope', '$state','signupSerivce',
 
-  $scope.registerBack = function(){
-    $state.go("login");
-  }
+   function($scope, $state,signupSerivce ) {
+
+    $scope.data = {
+      Firstname : null,
+      lastname: null,
+      email: null,
+      mobileNumber: null,
+      password: null
+    }
+
+
+    $scope.login = function(){
+      debugger;
+      signupSerivce.signupUser($scope.data.Firstname,$scope.data.lastname,$scope.data.email,$scope.data.mobileNumber,$scope.data.password)
+      /*$state.go("main.dash");*/
+    }
+
+    $scope.signupBack = function(){
+      $state.go("login");
+    }
+
+    $scope.mandatoryProductDetailsPresent = function() {
+      debugger;
+      if ($scope.data.Firstname == null &&  $scope.data.lastname == null &&  $scope.data.email == null &&  $scope.data.mobileNumber == null &&  $scope.data.password == null) {
+        return false;
+
+      }
+      return true;
+    }
 }])
 
-.controller('loginCtrl',['$scope','$state', 'UserService', '$ionicLoading',
- function($scope, $state, UserService, $ionicLoading){
+.controller('loginCtrl',['$scope','$state', 'UserService', '$ionicLoading','loginSerivce','$ionicPopup',
+ function($scope, $state, UserService, $ionicLoading, loginSerivce, $ionicPopup){
+
+  $scope.data = {};
   // This method is executed when the user press the "Sign in with Google" button
   $scope.googleSignIn = function() {
     $ionicLoading.show({
@@ -55,10 +79,49 @@ angular.module('app.controller',[])
   };
 
   $scope.login = function(){
+    /*console.log("Login user:" + $scope.data.username +"Password"+ $scope.data.password );*/
+    loginSerivce.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+      $state.go("main.dash");
+    }).error(function(data) {
+        var forceUpdatePopup = $ionicPopup.show({
+              'title':'login failed',
+              'subTitle':'retry',
+              buttons: [
+                { text: '<b>OK</b>',
+                  type: 'button-royal',
+                },
+              ]
+           });
+    });
+  }
+
+  $scope.signup = function(){
+    $state.go("signup");
+  }
+}])
+
+.controller('myAccountCtrl',['$scope','$state', 'UserService', '$ionicLoading','loginSerivce','$ionicPopup',
+ function($scope, $state, UserService, $ionicLoading, loginSerivce, $ionicPopup){
+
+  $scope.logout = function(){
+    $state.go("login");
+  }
+
+  $scope.myAccountBack = function(){
     $state.go("main.dash");
   }
 
-  $scope.register = function(){
-    $state.go("register");
+  $scope.selectlanguage = function(){
+    debugger;
+    $state.go("language");
   }
+
+}])
+
+.controller('languageCtrl',['$scope','$state', 'UserService', '$ionicLoading','loginSerivce','$ionicPopup',
+ function($scope, $state, UserService, $ionicLoading, loginSerivce, $ionicPopup){
+
+   $scope.myAccountBack = function(){
+     $state.go("myaccount");
+   }
 }])

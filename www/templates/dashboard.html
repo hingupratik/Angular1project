@@ -1,23 +1,24 @@
-<ion-view view-title="Dashboard" name="dashboard-view">
+<ion-view view-title="Dashboard" name="dashboard-view" title="app">
     <ion-nav-buttons side="right">
-        <button class="button icon-left ion-log-out button-stable" ng-click="logout()">logout</button>
+        <a ui-sref="myaccount"><i class="button button-clear icon rs-text ion-android-person"></i></a>
     </ion-nav-buttons>
-    
     <ion-content class="padding">
-        <ion-refresher class="ion-loading-a" on-pulling="doRefresh()"> </ion-refresher>    
-        <div class="row"><div class="col text-center">    
+        <ion-refresher class="ion-loading-a" on-pulling="doRefresh()"> </ion-refresher>
+        <div class="row"><div class="col text-center">
             <h3 class="title">Welcome {{username}}</h3>
             This is your Dashboard
             <br><br><br>
             <button class="button button-full button-positive" ng-click="perFormValidRequest()">
-                Make valid request 
+                Make valid request
             </button>
             <button class="button button-full button-energized" ng-click="perFormUnauthorizedRequest()">
                 Make request for unauthorized resource
             </button>
             <button class="button button-full button-assertive" ng-click="perFormInvalidRequest()">
-                make Request without valid token 
+                make Request without valid token
             </button>
+            <h1>{{"welcome_message" | translate}}</h1>
+            <h2>{{"goodbye_message" | translate}}</h2>
             <a class="google-sign-in button button-block" ng-click="googleSignIn()">Sign in with Google</a>
             <br><br>
             {{response}}
