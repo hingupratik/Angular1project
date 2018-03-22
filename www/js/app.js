@@ -3,8 +3,17 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('app', ['ionic','app.controller','app.services','app.routes'])
+var app = angular.module('app', ['ionic','app.controller','app.services','app.routes','pascalprecht.translate'])
+.constant('availableLanguages',['en-GB','en-ES'])
+.config(function($stateProvider, $urlRouterProvider, $translateProvider) {
 
+$translateProvider.useStaticFilesLoader({
+           prefix: './lang/',
+           suffix: '.json'
+         });
+         $translateProvider.preferredLanguage("en-ES");
+       $translateProvider.fallbackLanguage("en-ES");
+})
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -22,4 +31,3 @@ var app = angular.module('app', ['ionic','app.controller','app.services','app.ro
     }
   });
 })
-

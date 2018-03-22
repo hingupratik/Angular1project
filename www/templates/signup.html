@@ -1,40 +1,37 @@
-	
-<ion-view>
+<ion-view view-title="Sing-up" name="signup-tab">
 	<ion-nav-buttons side="side">
 		 <button class="button back-button buttons no-text button-clear header-item" ng-click="signupBack()">
-		 	<i class="icon ion-android-arrow-back"></i>  
+		 	<i class="icon ion-android-arrow-back"></i>
 		 </button>
   	</ion-nav-buttons>
     <ion-content padding="'true'" scroll="false" class="has-header">
         <form class="list">
             <ion-list>
                 <label class="item item-input">
-                    <span class="input-label">Name</span>
-                    <input type="text" placeholder="" ng-model="data.name">
+                    <span class="input-label">Firstname</span>
+                    <input type="text" placeholder="" ng-model="data.Firstname">
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">Username</span>
-                    <input type="email" placeholder="" ng-model="data.username">
+                    <span class="input-label">lastname</span>
+                    <input type="text" placeholder="" ng-model="data.lastname">
+                </label>
+								<label class="item item-input">
+                    <span class="input-label">Email address</span>
+                    <input type="email" placeholder="" ng-model="data.email">
+                </label>
+								<label class="item item-input">
+                    <span class="input-label">Mobile number</span>
+                    <input type="number" placeholder="" ng-model="data.mobileNumber">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Password</span>
                     <input type="password" placeholder="" ng-model="data.password">
                 </label>
-                <label class="item item-input">
-                    <span class="input-label">Phone</span>
-                    <input type="number" placeholder="" ng-model="data.phone">
-                </label>
-            </ion-list>
-            	<label class="item item-input">
-                	<span class="input-label">Address</span>
-                	<input type="text" placeholder="" ng-model="data.address">
-           		</label>
-            	<label class="item item-input">
-                	<span class="input-label">Pincode</span>
-                	<input type="number" placeholder="" ng-model="data.pincode">
-            	</label>
 
-          <button ng-click="login()" class="button button-stable button-block ">Sign up</button>
+            </ion-list>
+          <button ng-click="login()" ng-disabled="!mandatoryProductDetailsPresent()"
+					 ng-class="mandatoryProductDetailsPresent() ? 'button-royal':'button-block'"
+					style="font-weight:600;" class="button  button-block signupButton1">Sign up</button>
         </form>
     </ion-content>
 </ion-view>

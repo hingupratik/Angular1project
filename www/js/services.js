@@ -20,7 +20,7 @@ angular.module('app.services', [])
         loginUser: function(username, password) {
             var deferred = $q.defer();
             var promise = deferred.promise;
-            
+
             if (username == 'Admin' && password == 'Admin') {
                 deferred.resolve('Welcome ' + username + '!');
             } else {
@@ -35,6 +35,15 @@ angular.module('app.services', [])
                 return promise;
             }
             return promise;
+        }
+    }
+})
+.service('signupSerivce', function($q) {
+    return {
+        signupUser: function(Firstname,lastname,email,mobileNumber,password) {
+            debugger;
+
+            window.localStorage.setItem("userDetail"+JSON.stringify(Firstname,lastname,email,mobileNumber,password));
         }
     }
 })
