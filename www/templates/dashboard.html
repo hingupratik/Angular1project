@@ -1,27 +1,22 @@
-<ion-view view-title="Dashboard" name="dashboard-view" title="app">
+<ion-view title="Dashboard" name="dashboard-view" title="app" cache-view="false">
     <ion-nav-buttons side="right">
         <a ui-sref="myaccount"><i class="button button-clear icon rs-text ion-android-person"></i></a>
     </ion-nav-buttons>
     <ion-content class="padding">
         <ion-refresher class="ion-loading-a" on-pulling="doRefresh()"> </ion-refresher>
-        <div class="row"><div class="col text-center">
-            <h3 class="title">Welcome {{username}}</h3>
-            This is your Dashboard
+        <div class="col text-center row">
+            <h3 class="title">{{"dashboard_welcome" | translate}}</h3>
+            {{"dashboard_welcome_content" | translate}}
             <br><br><br>
-            <button class="button button-full button-positive" ng-click="perFormValidRequest()">
-                Make valid request
+            <button class="button button-full button-positive" ui-sref="firstButton">
+                {{"dashboard_design1" | translate}}
             </button>
-            <button class="button button-full button-energized" ng-click="perFormUnauthorizedRequest()">
-                Make request for unauthorized resource
+            <button class="button button-full button-energized" ui-sref="secondButton">
+                {{"dashboard_design2" | translate}}
             </button>
-            <button class="button button-full button-assertive" ng-click="perFormInvalidRequest()">
-                make Request without valid token
+            <button class="button button-full button-assertive" ui-sref="thirdButton">
+                {{"dashboard_design3" | translate}}
             </button>
-            <h1>{{"welcome_message" | translate}}</h1>
-            <h2>{{"goodbye_message" | translate}}</h2>
-            <a class="google-sign-in button button-block" ng-click="googleSignIn()">Sign in with Google</a>
-            <br><br>
-            {{response}}
-        </div> </div>
+          </div>
     </ion-content>
 </ion-view>

@@ -1,4 +1,4 @@
-<ion-view view-title="Myaccount">
+<ion-view title="Myaccount" cache-view="false">
     <ion-nav-buttons side="side">
          <button class="button back-button buttons no-text button-clear header-item" ng-click="myAccountBack()">
             <i class="icon ion-android-arrow-back"></i>
@@ -7,24 +7,36 @@
     <ion-content>
       <div>
       <ion-list id="myaccount-list74">
-        <ion-item id="myaccount-list-item105">Name
+        <ion-item id="myaccount-list-item105">{{"myaccount_name" | translate}}
           <span class="item-note">
             <span class="rs-text">Test</span>
           </span>
         </ion-item>
-        <ion-item id="myaccount-list-item105">Email
+        <ion-item id="myaccount-list-item105">{{"myaccount_email" | translate}}
           <span class="item-note">
             <span class="rs-text">Tester@icloud.com</span>
           </span>
         </ion-item>
-        <ion-item class="item-divider">Settings</ion-item>
-        <ion-item class="item-icon-right" ng-click="selectlanguage()">Language
+        <ion-item class="item-divider">{{"myaccount_settings" | translate}}</ion-item>
+        <ion-item class="item-icon-right" ng-click="selectlanguage()">{{"myaccount_language" | translate}}
           <span class="item-note">
-            <span class="rs-text">English</span>
+            <span class="rs-text"></span>
           </span>
           <i class="icon grey-icon-color ion-ios-world-outline"></i>
         </ion-item>
-        <ion-item class="item-icon-right" ng-click="logout()">
+        <ion-item class="item-icon-right" ng-click="chatwithus()">{{"myaccount_chat" | translate}}
+          <span class="item-note">
+            <span class="rs-text">{{"myaccount_chat_help" | translate}}</span>
+          </span>
+          <i class="icon grey-icon-color ion-ios-world-outline"></i>
+        </ion-item>
+        <ion-item id="myaccount-list-item113" class="rs-text-padding-right">{{ 'myAccount.appVersion' | translate }}
+          <span class="item-note">{{ 'myAccount.appVersionName' | translate }}</span>
+        </ion-item>
+        <ion-item id="myaccount-list-item113" class="rs-text-padding-right" ng-click="aboutapp()">{{ 'myAccount_aboutapp' | translate }}
+          <span class="item-note"></span>
+        </ion-item>
+        <ion-item class="item-icon-right" ng-click="logout()">{{"myaccount_logout" | translate}}
           <span class="item-note">
             <span class="rs-text">Logout</span>
           </span>
