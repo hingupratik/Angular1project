@@ -1,4 +1,41 @@
 {
 	"welcome_message": "Hello badal patel",
-	"goodbye_message": "Hello karan soni"
+	"goodbye_message": "Hello karan soni",
+
+	"myaccount_name": "Name",
+	"myaccount_email":"Email",
+	"myaccount_settings":"Settings",
+	"myaccount_language": "Language",
+	"myaccount_chat":"chat with us",
+	"myaccount_chat_help":"Help",
+	"myAccount.appVersion":"App version",
+	"myAccount.appVersionName":"1.0",
+	"myaccount_logout":"Logout",
+	"myaccount_myaccount":"Myaccount",
+	"myAccount_aboutapp":"About app",
+
+	"login_signin":"Sing-In",
+	"login_login":"Login",
+	"login_signup":"Sign Up",
+	"login_signInWithGoogle":"Sign in with Google",
+	"login_username":"Username",
+	"login_password":"password",
+
+	"signup_signup":"Sign-up",
+	"signup_firstname":"Firstname",
+	"signup_lastname":"lastname",
+	"signup_username":"Username",
+	"signup_emailAddress":"Email address",
+	"singup_mobilenumber":"Mobile number",
+	"signup_password":"Password",
+
+	"admin_content":"This is secret area!",
+
+	"dashboard_welcome":"Welcome",
+	"dashboard_welcome_content":"This is your Dashboard",
+	"dashboard_design1":"First design",
+	"dashboard_design2":"Second design",
+	"dashboard_design3":"Third design",
+
+	"public_underconstruction":"under construction"
 }

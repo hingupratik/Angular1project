@@ -4,15 +4,16 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('app', ['ionic','app.controller','app.services','app.routes','pascalprecht.translate'])
-.constant('availableLanguages',['en-GB','en-ES'])
+.constant('availableLanguages',['en-GB','en-HI','en-GU'])
+.constant('defaultLanguage', window.localStorage.getItem("currentLanguage") || 'en-GB')
 .config(function($stateProvider, $urlRouterProvider, $translateProvider) {
 
 $translateProvider.useStaticFilesLoader({
            prefix: './lang/',
            suffix: '.json'
          });
-         $translateProvider.preferredLanguage("en-ES");
-       $translateProvider.fallbackLanguage("en-ES");
+         $translateProvider.preferredLanguage("en-GB");
+       //$translateProvider.fallbackLanguage("en-GB");
 })
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,5 +30,6 @@ $translateProvider.useStaticFilesLoader({
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
   });
 })

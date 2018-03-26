@@ -30,7 +30,8 @@ angular.module('app.routes', [])
     url:'main/public',
     views:{
       'public-tab':{
-        templateUrl:'templates/public.html'
+        templateUrl:'templates/public.html',
+        controller:'publicCtrl'
       }
     }
   })
@@ -53,6 +54,26 @@ angular.module('app.routes', [])
     templateUrl:'templates/languageSelector.html',
     controller:'languageCtrl'
   })
+  .state('chat',{
+    url:'main/myaccount/chat',
+    templateUrl:'templates/chat.html',
+    controller:'chatCtrl'
+  })
+  .state('firstButton',{
+    url:'main/dash/firstButton',
+    templateUrl:'templates/firstButton.html',
+    controller:'firstButtonCtrl'
+  })
 
+  .state('secondButton',{
+    url:'main/dash/secondButton',
+    templateUrl:'templates/secondButton.html',
+    controller:'secondButtonCtrl'
+  })
+  .state('thirdButton',{
+    url:'main/dash/thirdButton',
+    templateUrl:'templates/thirdButton.html',
+    controller:'thirdButtonCtrl'
+  })
   $urlRouterProvider.otherwise('/main/dash')
 });

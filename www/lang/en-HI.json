@@ -1,0 +1,42 @@
+{
+	"welcome_message": "'स्वागत हे'",
+	"goodbye_message": "'नमस्ते'",
+
+	"myaccount_name": "नाम",
+	"myaccount_email":"ईमेल",
+	"myaccount_settings":" सेटिंग्",
+	"myaccount_language": "भाषा",
+	"myAccount.appVersion":"एप्लिकेशन वर्जन",
+	"myAccount.appVersionName":"1.0",
+	"myaccount_logout":"लोग आउट",
+	"myaccount_chat":"हम से बात करे",
+	"myaccount_chat_help":"मदद",
+	"myaccount_myaccount":"मेरा खाता",
+	"myAccount_aboutapp":"एप्लिकेशन के बारे में",
+
+	"login_signin":"साइन इन",
+	"login_login":"लॉग इन करें",
+	"login_signup":"साइन अप करें",
+	"login_signInWithGoogle":"Google के साथ साइन इन करें",
+	"login_username":"उपयोगकर्ता नाम",
+	"login_password":"पासवर्ड",
+
+	"signup_signup":"साइन-अप",
+	"signup_firstname":"पहला नाम",
+	"signup_lastname":"अंतिम नाम",
+	"signup_username":"उपयोगकर्ता नाम",
+	"signup_emailAddress":"ईमेल पता",
+	"singup_mobilenumber":"मोबाइल नंबर",
+	"signup_password":"पासवर्ड",
+
+	"admin_content":"यह गुप्त क्षेत्र है",
+
+	"dashboard_welcome":"स्वागत हे",
+	"dashboard_welcome_content":"यह आपका डैशबोर्ड है",
+	"dashboard_design1":"पहला डिजाइन",
+	"dashboard_design2":"दूसरा डिजाइन",
+	"dashboard_design3":"तीसरा डिज़ाइन",
+
+	"public_underconstruction":"निर्माणाधीन"
+
+}

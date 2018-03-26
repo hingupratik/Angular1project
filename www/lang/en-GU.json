@@ -1,0 +1,41 @@
+{
+	"welcome_message": "Hello badal patel",
+	"goodbye_message": "Hello karan soni",
+
+	"myaccount_name": "નામ",
+	"myaccount_email":"ઇમેઇલ",
+	"myaccount_settings":"સેટિંગ્",
+	"myaccount_language": "ભાષા",
+	"myAccount.appVersion":"એપ્લિકેશન વર્ઝન",
+	"myAccount.appVersionName":"1.0",
+	"myaccount_logout":"લૉગ આઉટ",
+	"myaccount_chat":"અમારી સાથે ચેટ કરો",
+	"myaccount_chat_help":"મદદ",
+  "myaccount_myaccount":"મારું ખાતું",
+	"myAccount_aboutapp":"એપ્લિકેશન વિશે",
+
+  "login_signin":"પ્રવેશો",
+	"login_login":"લૉગિન",
+	"login_signup":"સાઇનઅપ",
+	"login_signInWithGoogle":"Google સાથે સાઇન ઇન કરો",
+	"login_username":"વપરાશકર્તાનામ",
+	"login_password":"પાસવર્ડ",
+
+	"signup_signup":"સાઇન-અપ",
+	"signup_firstname":"પ્રથમ નામ",
+	"signup_lastname":"છેલ્લું નામ",
+	"signup_username":"વપરાશકર્તાનામ",
+	"signup_emailAddress":"ઈ-મેઈલ સરનામું",
+	"singup_mobilenumber":"મોબાઇલ નંબર",
+	"signup_password":"પાસવર્ડ",
+
+	"admin_content":"આ ગુપ્ત વિસ્તાર છે",
+
+	"dashboard_welcome":"સ્વાગત",
+	"dashboard_welcome_content":"આ તમારું ડેશબોર્ડ છે",
+	"dashboard_design1":"પ્રથમ ડિઝાઇન",
+	"dashboard_design2":"બીજું ડિઝાઇન",
+	"dashboard_design3":"ત્રીજી ડિઝાઇન",
+
+	"public_underconstruction":"બની રહ્યું છે"
+}

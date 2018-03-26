@@ -1,0 +1,15 @@
+<ion-view title="Chat" chache-view="false">
+    <ion-nav-buttons side="primary">
+      <button class="button button-icon ion-power " ng-click="logout()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="secondary">
+      <button class="button button-icon ion-ios-chatboxes" ng-click="addMessage()"></button>
+    </ion-nav-buttons>
+    <ion-content padding="true" class="has-header">
+        <ion-list  ng-repeat='item in data.test'>
+            <ion-item>
+                  <span class="input-label">{{item}}</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

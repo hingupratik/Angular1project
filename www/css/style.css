@@ -3,3 +3,13 @@
 .signupButton1{
 	min-width: 100%;
 }
+.foo {
+	position:absolute;
+	bottom:1px;
+	width:948px;
+	height:525px;
+	left:50%;
+	margin-left:-474px;
+	overflow: hidden;
+	background-color:#999999;
+}

@@ -1,4 +1,4 @@
-<ion-view view-title="Sing-up" name="signup-tab">
+<ion-view view-title="{{'signup_signup' | translate }}" name="signup-tab" cache-view="false">
 	<ion-nav-buttons side="side">
 		 <button class="button back-button buttons no-text button-clear header-item" ng-click="signupBack()">
 		 	<i class="icon ion-android-arrow-back"></i>
@@ -8,30 +8,34 @@
         <form class="list">
             <ion-list>
                 <label class="item item-input">
-                    <span class="input-label">Firstname</span>
+                    <span class="input-label">{{"signup_firstname" | translate}}</span>
                     <input type="text" placeholder="" ng-model="data.Firstname">
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">lastname</span>
+                    <span class="input-label">{{"signup_lastname" | translate}}</span>
                     <input type="text" placeholder="" ng-model="data.lastname">
                 </label>
 								<label class="item item-input">
-                    <span class="input-label">Email address</span>
+                    <span class="input-label">{{"signup_username" | translate}}</span>
+                    <input type="text" placeholder="" ng-model="data.username">
+                </label>
+								<label class="item item-input">
+                    <span class="input-label">{{"signup_emailAddress" | translate}}</span>
                     <input type="email" placeholder="" ng-model="data.email">
                 </label>
 								<label class="item item-input">
-                    <span class="input-label">Mobile number</span>
+                    <span class="input-label">{{"singup_mobilenumber" | translate}}</span>
                     <input type="number" placeholder="" ng-model="data.mobileNumber">
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">Password</span>
+                    <span class="input-label">{{"signup_password" | translate}}</span>
                     <input type="password" placeholder="" ng-model="data.password">
                 </label>
 
             </ion-list>
           <button ng-click="login()" ng-disabled="!mandatoryProductDetailsPresent()"
 					 ng-class="mandatoryProductDetailsPresent() ? 'button-royal':'button-block'"
-					style="font-weight:600;" class="button  button-block signupButton1">Sign up</button>
+					style="font-weight:600;" class="button  button-block signupButton1">{{"signup_signup" | translate}}</button>
         </form>
     </ion-content>
 </ion-view>
