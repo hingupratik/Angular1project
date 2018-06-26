@@ -1,6 +1,9 @@
 angular.module('app.routes', [])
 
-.config(function($stateProvider,$urlRouterProvider){
+.config(function($stateProvider,$urlRouterProvider,$ionicConfigProvider){
+
+  $ionicConfigProvider.tabs.position('top');
+
   $stateProvider
   .state('login',{
     url:'/login',
@@ -58,22 +61,6 @@ angular.module('app.routes', [])
     url:'main/myaccount/chat',
     templateUrl:'templates/chat.html',
     controller:'chatCtrl'
-  })
-  .state('firstButton',{
-    url:'main/dash/firstButton',
-    templateUrl:'templates/firstButton.html',
-    controller:'firstButtonCtrl'
-  })
-
-  .state('secondButton',{
-    url:'main/dash/secondButton',
-    templateUrl:'templates/secondButton.html',
-    controller:'secondButtonCtrl'
-  })
-  .state('thirdButton',{
-    url:'main/dash/thirdButton',
-    templateUrl:'templates/thirdButton.html',
-    controller:'thirdButtonCtrl'
   })
   $urlRouterProvider.otherwise('/main/dash')
 });
