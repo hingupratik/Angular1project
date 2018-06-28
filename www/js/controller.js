@@ -1,13 +1,42 @@
 angular.module('app.controller',[])
 
-  .controller('WelcomeCtrl',['$scope', '$state',
+  .controller('WelcomeCtrl',['$scope', '$state','priceService','$http',
 
-    function($scope, $state, ) {
+    function($scope, $state,priceService,$http) {
 
       $scope.doRefresh = function() {
         //Stop the ion-refresher from spinning
+        priceService.price($http).then(function(res){
+        console.log(res.data.data[1].quotes.USD.price);
+        $scope.data = {
+          bitcoin     : res.data.data[1].quotes.USD.price,
+          Ethereum    : res.data.data[1027].quotes.USD.price,
+          Binance     : res.data.data[1839].quotes.USD.price,
+          Tron        : res.data.data[1958].quotes.USD.price,
+          Ripple      : res.data.data[52].quotes.USD.price,
+          BitcoinCash: res.data.data[1831].quotes.USD.price,
+          EOS         : res.data.data[1765].quotes.USD.price,
+          Litecoin    : res.data.data[2].quotes.USD.price
+        }
+      })
+
         $scope.$broadcast('scroll.refreshComplete');
       };
+      /*CAll Api */
+      priceService.price($http).then(function(res){
+        $scope.resvar = res.data.data;
+        console.log(res.data.data[1].quotes.USD.price);
+        $scope.data = {
+          bitcoin     : res.data.data[1].quotes.USD.price,
+          Ethereum    : res.data.data[1027].quotes.USD.price,
+          Binance     : res.data.data[1839].quotes.USD.price,
+          Tron        : res.data.data[1958].quotes.USD.price,
+          Ripple      : res.data.data[52].quotes.USD.price,
+          BitcoinCash: res.data.data[1831].quotes.USD.price,
+          EOS         : res.data.data[1765].quotes.USD.price,
+          Litecoin    : res.data.data[2].quotes.USD.price
+        }
+      })
 }])
 
   .controller('signupCtrl',['$scope', '$state','signupSerivce','$http',
@@ -125,7 +154,6 @@ angular.module('app.controller',[])
     $state.go("chat");
   }
   $scope.aboutapp = function(){
-    debugger;
     var forceUpdatePopup = $ionicPopup.show({
           'title':'App is underconstruction',
           'subTitle':'ThankYou',
@@ -192,127 +220,4 @@ function($scope,$state,$ionicPopup){
 
 }])
 
-.controller('firstButtonCtrl',['$scope','$state',
-function($scope,$state){
-            var canvas = document.getElementById("signature");
-          var w = window.innerWidth;
-          var h = window.innerHeight;
 
-          // As the canvas doesn't has any size, we'll specify it with JS
-          // The width of the canvas will be the width of the device
-          canvas.width = w;
-          // The height of the canvas will be (almost) the third part of the screen height.
-          canvas.height = h/2.5;
-
-          var signaturePad = new SignaturePad(canvas,{
-              dotSize: 1
-          });
-
-          document.getElementById("export").addEventListener("click",function(e){
-              // Feel free to do whatever you want with the image
-              // as export to a server or even save it on the device.
-              var imageURI = signaturePad.toDataURL();
-              document.getElementById("preview").src = imageURI;
-          },false);
-
-      document.getElementById("reset").addEventListener("click",function(e){
-          // Clears the canvas
-          signaturePad.clear();
-      },false);
-
-      $scope.myAccountBack = function(){
-        $state.go('main.dash');
-      }
-}])
-
-.controller('secondButtonCtrl',['$scope','$state',
-function($scope,$state){
-
-  function distanceBetween(point1, point2) {
-  return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
-}
-function angleBetween(point1, point2) {
-  return Math.atan2( point2.x - point1.x, point2.y - point1.y );
-}
-
-var el = document.getElementById('c');
-var ctx = el.getContext('2d');
-ctx.fillStyle = 'red';
-ctx.strokeStyle = '#333';
-
-var isDrawing, lastPoint;
-
-el.onmousedown = function(e) {
-  isDrawing = true;
-  lastPoint = { x: e.clientX, y: e.clientY };
-};
-
-el.onmousemove = function(e) {
-  if (!isDrawing) return;
-
-  var currentPoint = { x: e.clientX, y: e.clientY };
-  var dist = distanceBetween(lastPoint, currentPoint);
-  var angle = angleBetween(lastPoint, currentPoint);
-
-  for (var i = 0; i < dist; i+=5) {
-    x = lastPoint.x + (Math.sin(angle) * i) - 25;
-    y = lastPoint.y + (Math.cos(angle) * i) - 25;
-    ctx.beginPath();
-    ctx.arc(x+10, y+10, 20, false, Math.PI * 2, false);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-  }
-
-  lastPoint = currentPoint;
-};
-
-el.onmouseup = function() {
-  isDrawing = false;
-};
-
-  $scope.myAccountBack = function(){
-    $state.go('main.dash');
-  }
-}])
-
-.controller('thirdButtonCtrl',['$scope','$state',
-function($scope,$state){
-      var el = document.getElementById('c');
-      var ctx = el.getContext('2d');
-
-      ctx.lineWidth = 10;
-      ctx.lineJoin = ctx.lineCap = 'round';
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = 'rgb(0, 0, 0)';
-
-      var isDrawing, points = [ ];
-
-      el.onmousedown = function(e) {
-        isDrawing = true;
-        points.push({ x: e.clientX, y: e.clientY });
-      };
-
-      el.onmousemove = function(e) {
-        if (!isDrawing) return;
-
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        points.push({ x: e.clientX, y: e.clientY });
-
-        ctx.beginPath();
-        ctx.moveTo(points[0].x, points[0].y);
-        for (var i = 1; i < points.length; i++) {
-          ctx.lineTo(points[i].x, points[i].y);
-        }
-        ctx.stroke();
-      };
-
-      el.onmouseup = function() {
-        isDrawing = false;
-        points.length = 0;
-      };
-
-  $scope.myAccountBack = function(){
-    $state.go('main.dash');
-  }
-}])

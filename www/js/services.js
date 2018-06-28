@@ -17,25 +17,6 @@ angular.module('app.services', [])
 })
 .service('loginSerivce', function($q) {
     return {
-        // loginUser: function(username, password) {
-        //     var deferred = $q.defer();
-        //     var promise = deferred.promise;
-        //
-        //     if (username == 'Admin' && password == 'Admin') {
-        //         deferred.resolve('Welcome ' + username + '!');
-        //     } else {
-        //         deferred.reject('Wrong credentials.');
-        //     }
-        //     promise.success = function(fn) {
-        //         promise.then(fn);
-        //         return promise;
-        //     }
-        //     promise.error = function(fn) {
-        //         promise.then(null, fn);
-        //         return promise;
-        //     }
-        //     return promise;
-        // }
         loginUser: function($http,username,password,$state,$ionicPopup){
           var loginUser = "http://localhost:3000/checkuser";
           var req = {
@@ -89,4 +70,26 @@ angular.module('app.services', [])
           });
         }
     }
+})
+.service('priceService',function($q){
+  return {
+    price : function($http){
+      var deferred = $q.defer();
+      var price = "https://api.coinmarketcap.com/v2/ticker/";
+      var req ={
+        method:'GET',
+        url:price
+      }
+      $http(req).then(function successCallback(response) {
+        debugger;
+        // console.log(response.data.data[0].name);
+        console.log(Object.keys(response.data.data));
+        // Object.keys(dhaval.data)
+          deferred.resolve(response);
+      }, function errorCallback(response) {
+          deferred.reject(response);
+        });
+     return deferred.promise;
+    }
+  }
 })
