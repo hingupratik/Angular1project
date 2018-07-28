@@ -29,6 +29,14 @@ angular.module('app.routes', [])
       }
     }
   })
+  .state('main.fav',{
+    url:'main/fav',
+    views:{
+      'fav-tab':{
+        templateUrl:'templates/favorite.html'
+      }
+    }
+  })
   .state('main.public',{
     url:'main/public',
     views:{

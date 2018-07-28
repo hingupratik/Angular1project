@@ -8,98 +8,13 @@
             <h3 class="title">{{"dashboard_welcome" | translate}}</h3>
             {{"dashboard_welcome_content" | translate}}
         </div> -->
-        <ion-item style="border-style:none;">BTC
-          <span class="item-note">
-            <span class="rs-text">${{data.bitcoin}} </span>
-          </span>
-          <i class="icon"></i>
+        <ion-item style="border-style:none;" ng-repeat="po in narrowed">
+            <span class="rs-text">{{po.name}} </span>
+            <span class="item-note">{{po.quotes.USD.price}}</span>
+          <!-- <i class="icon"></i> -->
         </ion-item>
-        <ion-item style="border-style:none;">Ethereum
-          <span class="item-note">
-            <span class="rs-text">${{data.Ethereum}} </span>
-          </span>
-          <i class="icon"></i>
-        </ion-item>
-        <ion-item style="border-style:none;">Tron
-          <span class="item-note">
-            <span class="rs-text">${{data.Tron}} </span>
-          </span>
-          <i class="icon"></i>
-        </ion-item>
-        <ion-item style="border-style:none;">Ripple
-          <span class="item-note">
-            <span class="rs-text">${{data.Ripple}} </span>
-          </span>
-          <i class="icon"></i>
-        </ion-item>
-        <ion-item style="border-style:none;">BitcoinCash
-          <span class="item-note">
-            <span class="rs-text">${{data.BitcoinCash}} </span>
-          </span>
-          <i class="icon"></i>
-        </ion-item>
-        <ion-item style="border-style:none;">EOS
-          <span class="item-note">
-            <span class="rs-text">${{data.EOS}} </span>
-          </span>
-          <i class="icon"></i>
-        </ion-item>
-        <ion-item style="border-style:none;">Litecoin
-          <span class="item-note">
-            <span class="rs-text">${{data.Litecoin}} </span>
-          </span>
-          <i class="icon"></i>
-        </ion-item>
-      
-        <!-- <div>
-            <table style="width:100%">
-                <tr>
-                    <th>
-                        <ion-item><span>BTC</span></ion-item>
-                    </th>
-                    <th>
-                        <ion-item><span>ETH</span>  </ion-item>
-                    </th>
-                    <th>
-                        <ion-item><span>BNB</span> </ion-item>
-                    </th>
-                    <th>
-                        <ion-item> <span>TRX</span></ion-item>
-                    </th> 
-                </tr>
-                <tr>
-                    <td><span>${{data.bitcoin}} </span></td>
-                    <td><span>${{data.Ethereum}}</span></td>
-                    <td><span>${{data.Binance}}</span></td>
-                    <td><span>${{data.Tron}}</span></td>
-                </tr>
-            </table>
-        </div>
-        <div>
-            <table style="width:100%">
-                <tr>
-                    <th>
-                        <ion-item><span>XRP</span></ion-item>
-                    </th>
-                    <th>
-                        <ion-item><span>BCH</span>  </ion-item>
-                    </th>
-                    <th>
-                        <ion-item><span>EOS</span> </ion-item>
-                    </th>
-                    <th>
-                        <ion-item> <span>LTC</span></ion-item>
-                    </th> 
-                </tr>
-                <tr>
-                    <td><span>${{data.Ripple}} </span></td>
-                    <td><span>${{data.BitcoinCash}}</span></td>
-                    <td><span>${{data.EOS}}</span></td>
-                    <td><span>${{data.Litecoin}}</span></td>
-                </tr>
-            </table>
-        </div>
-        <div> -->
-            
+        <!-- <ion-item style="border-style:none;" ng-repeat="name in data.priceOfName">
+             <span class="item-note">{{name}}</span>
+           </ion-item> -->  
     </ion-content>
 </ion-view>
