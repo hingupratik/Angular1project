@@ -82,10 +82,18 @@ angular.module('app.services', [])
       }
       $http(req).then(function successCallback(response) {
         debugger;
-        // console.log(response.data.data[0].name);
-        console.log(Object.keys(response.data.data));
-        // Object.keys(dhaval.data)
+       // var dictionary  = response.data;
+       //  for (item in dictionary) {
+       //    console.log("item"+item);
+       //    for (subItem in dictionary[item]) {
+       //     var nameOfPrice = dictionary[item][subItem].name;
+       //      var price = dictionary[item][subItem].quotes.USD.price;
+       //      console.log(nameOfPrice);
+       //      console.log(price);
+       //    }
+       //  }
           deferred.resolve(response);
+        
       }, function errorCallback(response) {
           deferred.reject(response);
         });
