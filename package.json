@@ -43,9 +43,11 @@
       "android"
     ]
   },
-  "script": {
+  "scripts": {
   "start": "node server.js",
-  },
+  "test": "mocha",
+  "postinstall": "bower install && grunt build"
+},
   "cordovaPlugins": [],
   "cordovaPlatforms": [
     "android"
