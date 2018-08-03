@@ -4,7 +4,7 @@ angular.module('app.controller',[])
 
     function($scope, $state,priceService,$http) {
       $scope.poList = [];
-
+      $scope.narrowed =[];
       $scope.data = {
        nameOfPrice : [],
        priceOfName : [],
@@ -15,7 +15,10 @@ angular.module('app.controller',[])
         $scope.narrowed = $scope.poList;
       });
 
-
+      /*CAll Api */
+      priceService.price($http).then(function(res){
+        $scope.poList = res.data.data;
+      })
   // $scope.dataValue = [{
   //   name : "Dhaval",
   //   bio : "About Dhaval",
@@ -50,53 +53,20 @@ angular.module('app.controller',[])
   //   name : "Parth",
   //   bio : "About Parth",
   // }]
-
-    
-
       $scope.doRefresh = function() {
-        //Stop the ion-refresher from spinning
         priceService.price($http).then(function(res){
-        // console.log(res.data.data[1].quotes.USD.price);
-        // $scope.data = {
-        //   bitcoin     : res.data.data[1].quotes.USD.price,
-        //   Ethereum    : res.data.data[1027].quotes.USD.price,
-        //   Binance     : res.data.data[1839].quotes.USD.price,
-        //   Tron        : res.data.data[1958].quotes.USD.price,
-        //   Ripple      : res.data.data[52].quotes.USD.price,
-        //   BitcoinCash: res.data.data[1831].quotes.USD.price,
-        //   EOS         : res.data.data[1765].quotes.USD.price,
-        //   Litecoin    : res.data.data[2].quotes.USD.price
-        // }
+        $scope.poList = res.data.data;
       })
 
         $scope.$broadcast('scroll.refreshComplete');
       };
-      /*CAll Api */
-      priceService.price($http).then(function(res){
-        // $scope.dictionary  = res.data;
-        // for (item in $scope.dictionary) {
-        //   for (subItem in $scope.dictionary[item]) {
-        //    $scope.nameOf = $scope.dictionary[item][subItem].name;
-        //    $scope.data.nameOfPrice.push($scope.nameOf);
-        //     $scope.price = $scope.dictionary[item][subItem].quotes.USD.price;
-        //     $scope.data.priceOfName.push($scope.price);
-            
-        //   }
-        $scope.poList = res.data.data;
+
+      $scope.search = function(){
+        $scope.narrowed = $scope.narrowed.name.filter(function(currency){
+          debugger;
         })
-        // console.log($scope.nameOfPrice);
-        // $scope.resvar = res.data.data;
-        // // console.log(res.data.data[1].quotes.USD.price);
-        // $scope.data = {
-        //   bitcoin     : res.data.data[1].quotes.USD.price,
-        //   Ethereum    : res.data.data[1027].quotes.USD.price,
-        //   Binance     : res.data.data[1839].quotes.USD.price,
-        //   Tron        : res.data.data[1958].quotes.USD.price,
-        //   Ripple      : res.data.data[52].quotes.USD.price,
-        //   BitcoinCash: res.data.data[1831].quotes.USD.price,
-        //   EOS         : res.data.data[1765].quotes.USD.price,
-        //   Litecoin    : res.data.data[2].quotes.USD.price
-        // }
+      }
+      
 }])
 
   .controller('signupCtrl',['$scope', '$state','signupSerivce','$http',
@@ -115,7 +85,6 @@ angular.module('app.controller',[])
 
     $scope.login = function(){
       signupSerivce.signupUser($http,$scope.data.Firstname,$scope.data.lastname,$scope.data.username,$scope.data.email,$scope.data.mobileNumber,$scope.data.password,$state)
-      /*$state.go("main.dash");*/
     }
 
     $scope.signupBack = function(){
