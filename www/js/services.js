@@ -81,7 +81,6 @@ angular.module('app.services', [])
         url:price
       }
       $http(req).then(function successCallback(response) {
-        debugger;
        // var dictionary  = response.data;
        //  for (item in dictionary) {
        //    console.log("item"+item);

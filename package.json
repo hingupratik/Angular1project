@@ -39,17 +39,11 @@
         "REVERSED_CLIENT_ID": "386187790823-24dlnae84ika610tut906noq48lip42g.apps.googleusercontent.com"
       }
     },
+    "scripts": {
+     "start": "server.js"
+    },
     "platforms": [
       "android"
     ]
-  },
-  "scripts": {
-  "start": "node server.js",
-  "test": "mocha",
-  "postinstall": "bower install && grunt build"
-},
-  "cordovaPlugins": [],
-  "cordovaPlatforms": [
-    "android"
-  ]
+  }
 }
